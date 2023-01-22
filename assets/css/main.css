@@ -1,0 +1,291 @@
+:root {
+    /* ### Primary */
+    --Soft_orange: hsl(35, 77%, 62%);
+    --Soft_red: hsl(5, 85%, 63%);
+    /* ### Neutral */
+    --Off_white: hsl(36, 100%, 99%);
+    --Grayish_blue: hsl(233, 8%, 79%);
+    --Dark_grayish_blue: hsl(236, 13%, 42%);
+    --Very_dark_blue: hsl(240, 100%, 5%);
+}
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont_slnt\,wght.ttf");
+    display: swap;
+}
+* { box-sizing: border-box; margin: 0; padding: 0;}
+body {
+    background-color: var(--Off_white);
+    color: var(--Dark_grayish_blue);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-wrapper { max-width: 1200px;}
+img { display: block; width: 100%; height: 100%; object-fit: cover;}
+a { text-decoration: none;}
+a:hover{ color: var(--Soft_red); transition: all 0.4s;}
+.btn { border: none; background-color: var(--Off_white);}
+.container { padding: 1rem; }
+
+/***************************** Header *****************************/
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-menu-item {
+    display: inline-block;
+    padding-left:1.7rem ;
+}
+.nav-menu-item:last-child {
+    display: none;
+}
+
+/***************************** Main *****************************/
+.main-container {
+    display: grid;
+    gap: 2rem 2rem;
+    grid-template-areas:
+        'group1 group1 group2'
+        'group1 group1 group2'
+        'group3 group3 group3';
+}
+
+/* g1 */
+.group1-box {
+    grid-area: group1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1.5rem;
+    max-height: 560px;
+}
+.main-gr1-textWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.main-gr1-heading {
+    font-size: 3.4rem;
+    font-variation-settings: "wght" 900;
+    line-height: 3.6rem;
+    color: black;
+    padding-right: 1.3rem;
+}
+.g1-right {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+.main-gr1-text + a {
+    padding: 1rem;
+    background-color: var(--Soft_red);
+    color: var(--Off_white);
+    margin-top: 1rem;
+    display: block;
+    width: 11rem;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+.main-gr1-text + a:hover {
+    background-color: var(--Very_dark_blue);
+}
+
+/* g2 */
+.group2-box {
+    grid-area: group2;
+    background-color: var(--Very_dark_blue);
+    color: white;
+    padding: 3rem 1rem 0 1rem;
+    min-width: 250px;
+    max-height: 560px;
+}
+.group2-box div:not(:last-child) {
+    border-bottom: 1px solid var(--Dark_grayish_blue);
+}
+.group2-box div {
+    padding: 2rem 0;
+}
+.main-gr2-heading {
+    color: var(--Soft_orange);
+    font-size: 2.2rem;
+}
+.main-gr2-subheading {
+    margin-bottom: 1rem;
+}
+.main-gr2-subheading a {
+    color: var(--Off_white);
+}
+.main-gr2-subheading:hover a {
+    color: var(--Soft_red);
+}
+.main-gr2-text {
+    color: var(--Grayish_blue);
+    max-width: 290px;
+}
+
+/* g3 */
+.group3-box {
+    grid-area: group3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4rem;
+}
+.gr3-box {
+    display: flex;
+    justify-content: space-between;
+}
+.gr3-box .img-wrapper {
+    width: 45%;
+    max-height: 140px;
+}
+.group3-text {
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--Very_dark_blue);
+}
+.gr3-box span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--Grayish_blue);
+}
+.main-gr3-heading {
+    padding: 0.8rem 0;
+    color: var(--Very_dark_blue);
+    font-weight: 900;
+}
+
+/***************************** Footer *****************************/
+.attribution {
+    font-size: 0.75rem;
+    text-align: center;
+}
+.attribution a {
+    color: hsl(126, 86%, 31%);
+    text-decoration: none;
+}
+
+/***************************** Media *****************************/
+@media(max-width:1000px) {
+    .page-wrapper { max-width: 900px; }
+    .main-gr1-heading {
+        font-size: 3.4rem;
+        font-variation-settings: "wght" 800;
+        line-height: 4rem;
+        color: black;
+    }
+    .main-container {
+        gap: 1rem;
+        grid-template-areas:
+            'group1 group1 group1'
+            'group2 group2 group2'
+            'group3 group3 group3';
+    }
+    .group2-box {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .group2-box div {
+        padding: 1rem;
+        width: 33.333%;
+    }
+    .group2-box div:not(:last-child) {
+        border-bottom: none;
+        border-right: 1px solid var(--Grayish_blue);
+    }
+    .main-gr2-heading {
+        width: 100%;
+        padding-bottom: 1rem;
+
+    }
+    .group3-box {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+    /* <550px */
+@media(max-width:550px) {
+    .page-wrapper {
+        width: 90%;
+        text-align: center;
+    }
+    /* responsive nav */
+    .nav-menu-item {
+        display: none;
+    }
+    .nav-menu-:last-child {
+        display: block;
+    }
+    .responsive .nav-menu-items {
+        position: absolute;
+        background-color: var(--Off_white);
+        top: 0;
+        right: 0;
+        padding: 2rem;
+        height: 80vh;
+        width: 70vw;
+    }
+    .responsive .nav-menu-item {
+        display: block;
+        text-align: left;
+        margin: 1rem 0;
+    }
+    .nav-menu-item:last-child {
+        display: block;
+    }
+    .responsive .nav-menu-item:last-child {
+        position: absolute;
+        right: 10%;
+        top: 10px;
+    }
+    .responsive .nav-menu {
+        display: block;
+    }
+    .nav-menu-item i{
+        font-size: 2rem;
+    }
+    /*  */
+    .group1-box {
+        grid-template-columns: 1fr;
+        max-height: fit-content;
+    }
+    .main-gr1-textWrapper{
+        grid-template-columns: 1fr;
+    }
+    .main-container {
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+    .group2-box {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: auto;
+        justify-items: center;
+    }
+    .main-gr2-text {
+        max-width: 100%;
+    }
+    .group2-box div {
+        /* padding: 1rem; */
+        width: 100%;
+    }
+    .group2-box div:not(:last-child) {
+        border-bottom: 1px solid var(--Dark_grayish_blue);
+        border-right: none;
+    }
+    .group3-box {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
